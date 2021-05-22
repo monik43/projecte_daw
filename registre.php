@@ -108,6 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin-left: 25%;
             margin-right: 25%;
             background-color: red;
+            border-radius: 5px;
         }
     </style>
 </head>
