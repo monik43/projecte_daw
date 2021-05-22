@@ -106,9 +106,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .wrapper {
             width: 350px;
             padding: 20px;
-            margin-left: 25%;
-            margin-right: 25%;
+            margin-left: 33%;
             border-radius: 5px;
+            background-color: #fcf8e3;
         }
     </style>
 </head>
