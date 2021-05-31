@@ -47,7 +47,7 @@ require_once "configuracio.php";
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="./index.html" title="">Home</a></li>
-                        <li><a href="./test.html" title=""><?php echo htmlspecialchars($_SESSION["username"]); ?></a></li>
+                        <li><a href="./panel.php" title=""><?php echo htmlspecialchars($_SESSION["username"]); ?></a></li>
                         <li>
                             <p>
                                 <a href="./components.html" class="btn btn-default navbar-btn" title="">Components</a>
