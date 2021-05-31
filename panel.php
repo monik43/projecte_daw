@@ -32,11 +32,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             border-radius: 5px;
             background-color: #fcf8e3;
         }
-
-        .pre {
-            margin: 7% 35% 0 35%;
-            background-color: #1763e9;
-        }
     </style>
     <link href="" rel="stylesheet">
 
