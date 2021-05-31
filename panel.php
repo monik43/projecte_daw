@@ -29,7 +29,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         .wrapper {
             width: 350px;
             padding: 20px;
-            
+            margin: 7% 35% 0 35%;
             border-radius: 5px;
             background-color: #fcf8e3;
         }
@@ -73,7 +73,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             </div>
         </nav>
     </header>
-    <div>
     <div class="wrapper">
         <h3 class="my-5">Hola, <b><?php echo htmlspecialchars($_SESSION["username"]); ?>!</b>. Aquest és el teu panell d'usuari.</h3>
         <p>
