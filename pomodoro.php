@@ -14,7 +14,7 @@ require_once "configuracio.php";
     <meta charset="UTF-8">
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
-    
+
 
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
     <link href="./assets/favicon.ico" rel="icon">
@@ -47,10 +47,9 @@ require_once "configuracio.php";
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="./index.html" title="">Home</a></li>
-                        <li><a href="./panel.php" title=""><?php echo htmlspecialchars($_SESSION["username"]); ?></a></li>
                         <li>
                             <p>
-                                <a href="./components.html" class="btn btn-default navbar-btn" title="">Components</a>
+                                <a href="./panel.php" class="btn btn-default navbar-btn" title=""><?php echo htmlspecialchars($_SESSION["username"]); ?></a>
                             </p>
                         </li>
 
