@@ -19,7 +19,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
     <link href="./assets/favicon.ico" rel="icon">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="./main.550dcf66.css" rel="stylesheet" />
     <style>
         body {
             font: 14px sans-serif;
