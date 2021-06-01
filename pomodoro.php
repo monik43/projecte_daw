@@ -59,62 +59,91 @@ require_once "configuracio.php";
             </div>
         </nav>
     </header>
-    
+
 
     <h3>Min estudi</h3>
-    <button type="button" onclick="setMinEstudi(10)">10 min</button>
-    <button type="button" onclick="setMinEstudi(15)">15 min</button>
-    <button type="button" onclick="setMinEstudi(20)">20 min</button>
-    <button type="button" onclick="setMinEstudi(25)">25 min</button>
-    <button type="button" onclick="setMinEstudi(30)">30 min</button>
-    <button type="button" onclick="setMinEstudi(35)">35 min</button>
-    <button type="button" onclick="setMinEstudi(40)">40 min</button>
-    <button type="button" onclick="setMinEstudi(45)">45 min</button>
+    <button type="button" onclick="setEstudi(10)">10 min</button>
+    <button type="button" onclick="setEstudi(15)">15 min</button>
+    <button type="button" onclick="setEstudi(20)">20 min</button>
+    <button type="button" onclick="setEstudi(25)">25 min</button>
+    <button type="button" onclick="setEstudi(30)">30 min</button>
+    <button type="button" onclick="setEstudi(35)">35 min</button>
+    <button type="button" onclick="setEstudi(40)">40 min</button>
+    <button type="button" onclick="setEstudi(45)">45 min</button>
 
     <h3>Min descans</h3>
-    <button type="button" onclick="setMinDescans(5)">10 min</button>
-    <button type="button" onclick="setMinDescans(10)">15 min</button>
-    <button type="button" onclick="setMinDescans(15)">20 min</button>
-    <button type="button" onclick="setMinDescans(20)">25 min</button>
+    <button type="button" onclick="setDescans(5)">5 min</button>
+    <button type="button" onclick="setDescans(10)">10 min</button>
+    <button type="button" onclick="setDescans(15)">15 min</button>
+    <button type="button" onclick="setDescans(20)">20 min</button>
 
+
+    <h3>Numero cicles</h3>
+    <form>
+        <input type="number" id="cicles" name="cicles" min="1" max="10">
+    </form>
 
     <p id="countdown"></p>
 
-    <button type="button" onclick="setMinEstudi(25)">Començar</button>
+    <button type="button" onclick="comPomo()">Començar</button>
     <script>
+        function comPomo() {
+            var cicles_totals = document.getElementsById("cicles");
+            var cicles_per_acabar = true;
 
-        function setMinEstudi(min){
-            var compteEstudi= new Date(Date.getTime() + min * 60000);
-        }
+            while (cicles_per_acabar) {
 
-        function setMinDescans(min){
-            var compteDescans = new Date(Date.getTime() + min * 60000);
-        }
+                if (cicles_totals <= 0) {
+                    cicles_per_acabar = true;
+                } else {
+                    var descans = false;
 
-        // Update the count down every 1 second
-        var x = setInterval(function() {
+                    // Update the count down every 1 second
+                    var x = setInterval(function() {
+                        var descans = false;
 
-            // Get today's date and time
-            var now = new Date().getTime();
+                        // Get today's date and time
+                        var now = new Date().getTime();
 
-            // Find the distance between now and the count down date
-            var distance = countDownDate - now;
+                        // Find the distance between now and the count down date
+                        if (descans) {
+                            var tempsCount = new Date(Date.getTime() + min_descans * 60000);
+                        } else {
+                            var tempsCount = new Date(Date.getTime() + min_estudi * 60000);
+                        }
+                        var distance = tempsCount - now;
 
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                        // Time calculations for days, hours, minutes and seconds
+                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Output the result in an element with id="demo"
-            document.getElementById("countdown").innerHTML = "// " + minutes + " : " + seconds + " \\";
+                        // Output the result in an element with id="demo"
+                        document.getElementById("countdown").innerHTML = "// " + minutes + " : " + seconds + " \\";
 
-            // If the count down is over, write some text 
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("demo").innerHTML = "EXPIRED";
+                        // If the count down is over, write some text 
+                        if (distance < 0) {
+                            clearInterval(x);
+                            cicles_totals -= 1;
+                            document.getElementById("demo").innerHTML = "EXPIRED";
+                        }
+                    }, 1000);
+
+                    descans = true;
+                }
             }
-        }, 1000);
+        }
+
+        function setEstudi(min) {
+            var min_estudi = min;
+        }
+
+        function setDescans(min) {
+            var min_descans = min;
+        }
+
+        function setMinDescans(min) {
+            var tempsDescans = new Date(Date.getTime() + min * 60000);
+        }
     </script>
 
     <script>
