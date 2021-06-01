@@ -60,17 +60,35 @@ require_once "configuracio.php";
         </nav>
     </header>
     
+
+    <h3>Min estudi</h3>
     <button type="button" onclick="setMinEstudi(10)">10 min</button>
     <button type="button" onclick="setMinEstudi(15)">15 min</button>
     <button type="button" onclick="setMinEstudi(20)">20 min</button>
     <button type="button" onclick="setMinEstudi(25)">25 min</button>
+    <button type="button" onclick="setMinEstudi(30)">30 min</button>
+    <button type="button" onclick="setMinEstudi(35)">35 min</button>
+    <button type="button" onclick="setMinEstudi(40)">40 min</button>
+    <button type="button" onclick="setMinEstudi(45)">45 min</button>
 
+    <h3>Min descans</h3>
+    <button type="button" onclick="setMinDescans(5)">10 min</button>
+    <button type="button" onclick="setMinDescans(10)">15 min</button>
+    <button type="button" onclick="setMinDescans(15)">20 min</button>
+    <button type="button" onclick="setMinDescans(20)">25 min</button>
+
+
+    <p id="countdown"></p>
+
+    <button type="button" onclick="setMinEstudi(25)">Començar</button>
     <script>
 
-        var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
-
         function setMinEstudi(min){
-            var compteEnrrere = new Date(Date.getTime() + min * 60000);
+            var compteEstudi= new Date(Date.getTime() + min * 60000);
+        }
+
+        function setMinDescans(min){
+            var compteDescans = new Date(Date.getTime() + min * 60000);
         }
 
         // Update the count down every 1 second
@@ -89,8 +107,7 @@ require_once "configuracio.php";
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             // Output the result in an element with id="demo"
-            document.getElementById("demo").innerHTML = days + "d " + hours + "h " +
-                minutes + "m " + seconds + "s ";
+            document.getElementById("countdown").innerHTML = "// " + minutes + " : " + seconds + " \\";
 
             // If the count down is over, write some text 
             if (distance < 0) {
