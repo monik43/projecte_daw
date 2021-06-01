@@ -94,43 +94,45 @@ require_once "configuracio.php";
             while (cicles_per_acabar) {
 
                 if (cicles_totals <= 0) {
-                    cicles_per_acabar = true;
+                    cicles_per_acabar = false;
                 } else {
                     var descans = false;
 
-                    // Update the count down every 1 second
-                    var x = setInterval(function() {
-                        var descans = false;
-
-                        // Get today's date and time
-                        var now = new Date().getTime();
-
-                        // Find the distance between now and the count down date
-                        if (descans) {
-                            var tempsCount = new Date(Date.getTime() + min_descans * 60000);
-                        } else {
-                            var tempsCount = new Date(Date.getTime() + min_estudi * 60000);
-                        }
-                        var distance = tempsCount - now;
-
-                        // Time calculations for days, hours, minutes and seconds
-                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                        // Output the result in an element with id="demo"
-                        document.getElementById("countdown").innerHTML = "// " + minutes + " : " + seconds + " \\";
-                        console.log(minutes + " " + seconds);
-                        // If the count down is over, write some text 
-                        if (distance < 0) {
-                            clearInterval(x);
-                            cicles_totals -= 1;
-                            document.getElementById("countdowm").innerHTML = "EXPIRED";
-                        }
-                    }, 1000);
+                    var tid = setTimeout(segon, 1000);
 
                     descans = true;
+
+                    tid = setTimeout(segon, 1000);
                 }
             }
+        }
+
+        function segon() {
+            var now = new Date().getTime();
+
+            if (descans) {
+                var tempsCount = new Date(Date.getTime() + min_descans * 60000);
+            } else {
+                var tempsCount = new Date(Date.getTime() + min_estudi * 60000);
+            }
+            var distance = tempsCount - now;
+
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = "// " + minutes + " : " + seconds + " \\";
+            console.log(minutes + " " + seconds);
+            // If the count down is over, write some text 
+            if (distance < 0) {
+                abortTimer();
+                cicles_totals -= 1;
+            } else {
+                tid = setTimeout(segon, 1000); // repeat myself
+            }
+        }
+
+        function abortTimer() { // to be called when you want to stop the timer
+            clearTimeout(tid);
         }
 
         function setEstudi(min) {
@@ -139,10 +141,6 @@ require_once "configuracio.php";
 
         function setDescans(min) {
             var min_descans = min;
-        }
-
-        function setMinDescans(min) {
-            var tempsDescans = new Date(Date.getTime() + min * 60000);
         }
     </script>
 
