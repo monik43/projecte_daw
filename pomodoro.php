@@ -119,12 +119,12 @@ require_once "configuracio.php";
 
                         // Output the result in an element with id="demo"
                         document.getElementById("countdown").innerHTML = "// " + minutes + " : " + seconds + " \\";
-
+                        console.log(minutes + " " + seconds);
                         // If the count down is over, write some text 
                         if (distance < 0) {
                             clearInterval(x);
                             cicles_totals -= 1;
-                            document.getElementById("demo").innerHTML = "EXPIRED";
+                            document.getElementById("countdowm").innerHTML = "EXPIRED";
                         }
                     }, 1000);
 
