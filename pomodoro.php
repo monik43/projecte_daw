@@ -59,6 +59,46 @@ require_once "configuracio.php";
             </div>
         </nav>
     </header>
+    
+    <button type="button" onclick="setMinEstudi(10)">10 min</button>
+    <button type="button" onclick="setMinEstudi(15)">15 min</button>
+    <button type="button" onclick="setMinEstudi(20)">20 min</button>
+    <button type="button" onclick="setMinEstudi(25)">25 min</button>
+
+    <script>
+
+        var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
+
+        function setMinEstudi(min){
+            var compteEnrrere = new Date(Date.getTime() + min * 60000);
+        }
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="demo"
+            document.getElementById("demo").innerHTML = days + "d " + hours + "h " +
+                minutes + "m " + seconds + "s ";
+
+            // If the count down is over, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function(event) {
