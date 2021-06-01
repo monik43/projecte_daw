@@ -29,7 +29,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         .wrapper {
             width: 350px;
             padding: 20px;
-            margin: 7% 35% 0 35%;
+
             border-radius: 5px;
             background-color: #fcf8e3;
         }
@@ -55,7 +55,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="./index.html" title="">
-                        <img src="./assets/images/mashup-icon.svg" class="navbar-logo-img" alt=""> Mashup Template
+                        <img src="./assets/icon.png" class="navbar-logo-img" alt="" />
+                        Ready12
                     </a>
                 </div>
 

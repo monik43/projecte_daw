@@ -40,7 +40,8 @@ require_once "configuracio.php";
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="./index.html" title="">
-                        <img src="./assets/images/mashup-icon.svg" class="navbar-logo-img" alt=""> Mashup Template
+                        <img src="./assets/icon.png" class="navbar-logo-img" alt="" />
+                        Ready12
                     </a>
                 </div>
 
