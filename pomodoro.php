@@ -88,7 +88,7 @@ require_once "configuracio.php";
     <button type="button" onclick="comPomo()">Començar</button>
     <script>
         function comPomo() {
-            var cicles_totals = document.getElementsById("cicles");
+            var cicles_totals = document.getElementById("cicles");
             var cicles_per_acabar = true;
 
             while (cicles_per_acabar) {
