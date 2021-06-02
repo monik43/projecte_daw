@@ -87,47 +87,15 @@ require_once "configuracio.php";
     <p id="demo"></p>
     <button type="button" onclick="comPomo()">Començar</button>
 
-    <script>
-        // Set the date we're counting down to
-        var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
-
-        // Update the count down every 1 second
-        var x = setInterval(function() {
-
-            // Get today's date and time
-            var now = new Date().getTime();
-
-            // Find the distance between now and the count down date
-            var distance = countDownDate - now;
-
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Output the result in an element with id="demo"
-            document.getElementById("demo").innerHTML = days + "d " + hours + "h " +
-                minutes + "m " + seconds + "s ";
-
-            // If the count down is over, write some text 
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("demo").innerHTML = "EXPIRED";
-            }
-        }, 1000);
-    </script>
 
     <script>
         function comPomo() {
-            var cicles_totals = document.getElementById("cicles");
+            var cicles_totals = 2 //document.getElementById("cicles");
             var cicles_per_acabar = true;
 
             while (cicles_per_acabar) {
-
-                if (cicles_totals <= 0) {
-                    cicles_per_acabar = false;
-                } else {
+                if (cicles_totals > 0) {
+                    console.log("cicle n" + cicles_totals)
                     var descans = false;
 
                     var tid = setTimeout(segon, 1000);
@@ -135,17 +103,20 @@ require_once "configuracio.php";
                     descans = true;
 
                     tid = setTimeout(segon, 1000);
+                } else {
+                    cicles_per_acabar = false;
                 }
             }
         }
 
         function segon() {
-            var now = new Date().getTime();
-
+            var now = new Date();
+            var tempsCount = now;
+            
             if (descans) {
-                var tempsCount = new Date(Date.getTime() + min_descans * 60000);
+                tempsCount.setMinutes(tempsCount.getMinutes + min_descans);
             } else {
-                var tempsCount = new Date(Date.getTime() + min_estudi * 60000);
+                tempsCount.setMinutes(tempsCount.getMinutes + min_estudi);
             }
             var distance = tempsCount - now;
 
