@@ -97,7 +97,7 @@ require_once "configuracio.php";
                 console.log("cicle n" + cicles_totals);
                 var descans = false;
 
-                var tid = setTimeout(segon(descans, min_descans, min_estudi), 1000);
+                var tid = setTimeout(segon(descans), 1000);
             }
         }
 
@@ -134,10 +134,12 @@ require_once "configuracio.php";
 
         function setEstudi(min) {
             var min_estudi = min;
+            console.log(min_estudi);
         }
 
         function setDescans(min) {
             var min_descans = min;
+            console.log(min_descans);
         }
     </script>
 
