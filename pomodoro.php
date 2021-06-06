@@ -93,23 +93,20 @@ require_once "configuracio.php";
             var cicles_totals = 2 //document.getElementById("cicles");
             var cicles_per_acabar = true;
 
-            while (cicles_per_acabar) {
-                if (cicles_totals > 0) {
-                    console.log("cicle n" + cicles_totals)
-                    var descans = false;
+            for (var i = cicles_totals; i > 0; i -= 1) {
+                console.log("cicle n" + cicles_totals)
+                var descans = false;
 
-                    var tid = setTimeout(function(){ alert("Hello"); }, 1000);
-
-                } else {
-                    cicles_per_acabar = false;
-                }
+                var tid = setTimeout(function() {
+                    alert("Hello");
+                }, 1000);
             }
         }
 
         function segon() {
             var now = new Date();
             var tempsCount = now;
-            
+
             if (descans) {
                 tempsCount.setMinutes(tempsCount.getMinutes + min_descans);
             } else {
