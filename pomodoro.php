@@ -97,11 +97,11 @@ require_once "configuracio.php";
                 console.log("cicle n" + cicles_totals);
                 var descans = false;
 
-                var tid = setTimeout(segon, 1000);
+                var tid = setTimeout(segon(descans), 1000);
             }
         }
 
-        function segon() {
+        function segon(descans) {
             var now = new Date();
             var tempsCount = now;
 
