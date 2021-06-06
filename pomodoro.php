@@ -97,9 +97,7 @@ require_once "configuracio.php";
                 console.log("cicle n" + cicles_totals)
                 var descans = false;
 
-                var tid = setTimeout(function() {
-                    alert("Hello");
-                }, 1000);
+                var tid = setTimeout(segon, 1000);
             }
         }
 
