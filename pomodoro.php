@@ -94,7 +94,7 @@ require_once "configuracio.php";
             var cicles_per_acabar = true;
 
             for (var i = cicles_totals; i > 0; i -= 1) {
-                console.log("cicle n" + cicles_totals)
+                console.log("cicle n" + cicles_totals);
                 var descans = false;
 
                 var tid = setTimeout(segon, 1000);
@@ -107,8 +107,10 @@ require_once "configuracio.php";
 
             if (descans) {
                 tempsCount.setMinutes(tempsCount.getMinutes + min_descans);
+                console.log("tempscount descans " + tempsCount);
             } else {
                 tempsCount.setMinutes(tempsCount.getMinutes + min_estudi);
+                console.log("tempscount " + tempsCount);
             }
             var distance = tempsCount - now;
 
