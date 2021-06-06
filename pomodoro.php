@@ -92,7 +92,6 @@ require_once "configuracio.php";
         function comPomo() {
             var now = new Date();
             var cicles_totals = 2 //document.getElementById("cicles");
-            var cicles_per_acabar = true;
 
             for (var i = cicles_totals; i > 0; i -= 1) {
                 console.log("cicle n" + cicles_totals);
