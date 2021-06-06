@@ -90,6 +90,7 @@ require_once "configuracio.php";
 
     <script>
         function comPomo() {
+            var now = new Date();
             var cicles_totals = 2 //document.getElementById("cicles");
             var cicles_per_acabar = true;
 
@@ -97,12 +98,11 @@ require_once "configuracio.php";
                 console.log("cicle n" + cicles_totals);
                 var descans = false;
 
-                var tid = setTimeout(segon(descans), 1000);
+                var tid = setTimeout(segon(descans,now), 1000);
             }
         }
 
-        function segon(descans, min_descans, min_estudi) {
-            var now = new Date();
+        function segon(descans,now) {
             var tempsCount = now;
 
             if (descans) {
