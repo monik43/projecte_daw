@@ -98,11 +98,8 @@ require_once "configuracio.php";
                     console.log("cicle n" + cicles_totals)
                     var descans = false;
 
-                    var tid = setTimeout(segon, 1000);
+                    var tid = setTimeout(function(){ alert("Hello"); }, 1000);
 
-                    descans = true;
-
-                    tid = setTimeout(segon, 1000);
                 } else {
                     cicles_per_acabar = false;
                 }
