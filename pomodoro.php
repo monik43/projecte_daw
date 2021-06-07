@@ -105,7 +105,7 @@ require_once "configuracio.php";
 
         function segon(descans) {
             tempsCount = now;
-
+            console.log("now "+ now);
             if (descans) {
                 tempsCount = tempsCount.setMinutes(tempsCount.getMinutes + min_descans);
                 console.log("tempscount descans " + tempsCount);
@@ -113,7 +113,7 @@ require_once "configuracio.php";
                 tempsCount = tempsCount.setMinutes(tempsCount.getMinutes + min_estudi);
                 console.log("tempscount " + tempsCount);
             }
-            
+
             distance = tempsCount - now;
 
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
