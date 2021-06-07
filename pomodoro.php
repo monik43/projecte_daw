@@ -92,7 +92,7 @@ require_once "configuracio.php";
         var cicles_totals, min_estudi, min_descans, descans, tempsCount, now;
 
         function comPomo() {
-            now = new Date();
+            now = new Date().getTime();;
             cicles_totals = 2; //document.getElementById("cicles");
 
             for (var i = cicles_totals; i > 0; i -= 1) {
