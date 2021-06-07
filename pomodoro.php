@@ -92,10 +92,20 @@ require_once "configuracio.php";
         var cicles_totals, min_estudi, min_descans, descans, tempsCount, now;
 
         function comPomo() {
-            now = new Date().getTime();;
+            now = new Date().getTime();
             cicles_totals = 2; //document.getElementById("cicles");
 
             for (var i = cicles_totals; i > 0; i -= 1) {
+                tempsCount = now;
+                console.log("now " + now);
+                console.log("tempscount " + tempsCount);
+                if (descans) {
+                    tempsCount += (min_descans * 60000);
+                    console.log("tempscount descans " + tempsCount);
+                } else {
+                    tempsCount += (min_estudi * 60000);
+                    console.log("tempscount " + tempsCount);
+                }
                 console.log("cicle n" + cicles_totals);
                 descans = false;
 
@@ -104,18 +114,9 @@ require_once "configuracio.php";
         }
 
         function segon(descans) {
-            tempsCount = now;
-            console.log("now "+ now);
-            console.log("tempscount "+ tempsCount   );
-            if (descans) {
-                tempsCount += (min_descans * 60000);
-                console.log("tempscount descans " + tempsCount);
-            } else {
-                tempsCount += (min_estudi * 60000);
-                console.log("tempscount " + tempsCount);
-            }
+            this_segon = new Date().getTime();
 
-            distance = tempsCount - now;
+            distance = this_segon - tempsCount;
 
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
