@@ -108,10 +108,10 @@ require_once "configuracio.php";
             console.log("now "+ now);
             console.log("tempscount "+ tempsCount   );
             if (descans) {
-                tempsCount.setMinutes(min_descans * 60000);
+                tempsCount += (min_descans * 60000);
                 console.log("tempscount descans " + tempsCount);
             } else {
-                tempsCount.setMinutes(min_estudi * 60000);
+                tempsCount += (min_estudi * 60000);
                 console.log("tempscount " + tempsCount);
             }
 
