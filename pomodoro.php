@@ -89,29 +89,32 @@ require_once "configuracio.php";
 
 
     <script>
+        var cicles_totals, min_estudi, min_descans, descans, tempsCount, now;
+
         function comPomo() {
-            var now = new Date();
-            var cicles_totals = 2 //document.getElementById("cicles");
+            now = new Date();
+            cicles_totals = 2; //document.getElementById("cicles");
 
             for (var i = cicles_totals; i > 0; i -= 1) {
                 console.log("cicle n" + cicles_totals);
-                var descans = false;
+                descans = false;
 
-                var tid = setTimeout(segon(descans,now), 1000);
+                var tid = setTimeout(segon(descans), 1000);
             }
         }
 
-        function segon(descans,now) {
-            var tempsCount = now;
+        function segon(descans) {
+            tempsCount = now;
 
             if (descans) {
-                tempsCount.setMinutes(tempsCount.getMinutes + min_descans);
+                tempsCount = tempsCount.setMinutes(tempsCount.getMinutes + min_descans);
                 console.log("tempscount descans " + tempsCount);
             } else {
-                tempsCount.setMinutes(tempsCount.getMinutes + min_estudi);
+                tempsCount = tempsCount.setMinutes(tempsCount.getMinutes + min_estudi);
                 console.log("tempscount " + tempsCount);
             }
-            var distance = tempsCount - now;
+            
+            distance = tempsCount - now;
 
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
@@ -132,12 +135,12 @@ require_once "configuracio.php";
         }
 
         function setEstudi(min) {
-            var min_estudi = min;
+            min_estudi = min;
             console.log(min_estudi);
         }
 
         function setDescans(min) {
-            var min_descans = min;
+            min_descans = min;
             console.log(min_descans);
         }
     </script>
