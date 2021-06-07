@@ -106,12 +106,12 @@ require_once "configuracio.php";
         function segon(descans) {
             tempsCount = now;
             console.log("now "+ now);
-            console.log("tempscount "+ tempsCount);
+            console.log("tempscount "+ tempsCount   );
             if (descans) {
-                tempsCount.setMinutes(tempsCount.getMinutes + min_descans);
+                tempsCount.setMinutes((tempsCount.getMinutes + min_descans));
                 console.log("tempscount descans " + tempsCount);
             } else {
-                tempsCount.setMinutes(tempsCount.getMinutes + min_estudi);
+                tempsCount.setMinutes((tempsCount.getMinutes + min_estudi));
                 console.log("tempscount " + tempsCount);
             }
 
