@@ -89,7 +89,7 @@ require_once "configuracio.php";
 
 
     <script>
-        var cicles_totals, min_estudi, min_descans, descans, tempsCount, now;
+        var cicles_totals, min_estudi, min_descans, descans, tempsCount, now, tid;
 
         function comPomo() {
             now = new Date().getTime();
