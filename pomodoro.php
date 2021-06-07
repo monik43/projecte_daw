@@ -106,6 +106,7 @@ require_once "configuracio.php";
         function segon(descans) {
             tempsCount = now;
             console.log("now "+ now);
+            console.log("tempscount "+ tempsCount);
             if (descans) {
                 tempsCount.setMinutes(tempsCount.getMinutes + min_descans);
                 console.log("tempscount descans " + tempsCount);
