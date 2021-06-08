@@ -62,6 +62,7 @@ require_once "configuracio.php";
 
 
     <h3>Min estudi</h3>
+    <button type="button" onclick="setEstudi(1)">1 min</button>
     <button type="button" onclick="setEstudi(10)">10 min</button>
     <button type="button" onclick="setEstudi(15)">15 min</button>
     <button type="button" onclick="setEstudi(20)">20 min</button>
@@ -72,6 +73,7 @@ require_once "configuracio.php";
     <button type="button" onclick="setEstudi(45)">45 min</button>
 
     <h3>Min descans</h3>
+    <button type="button" onclick="setEstudi(1)">1 min</button>
     <button type="button" onclick="setDescans(5)">5 min</button>
     <button type="button" onclick="setDescans(10)">10 min</button>
     <button type="button" onclick="setDescans(15)">15 min</button>
@@ -95,9 +97,11 @@ require_once "configuracio.php";
             now = new Date().getTime();
             cicles_totals = 2; //document.getElementById("cicles");
 
+            descans = false;
+
             for (var i = cicles_totals; i > 0; i -= 1) {
                 tempsCount = now;
-                console.log("now " + now);
+                console.log("cicle nou" + now);
                 console.log("tempscount " + tempsCount);
                 if (descans) {
                     tempsCount += (min_descans * 60000);
@@ -106,8 +110,6 @@ require_once "configuracio.php";
                     tempsCount += (min_estudi * 60000);
                     console.log("tempscount " + tempsCount);
                 }
-                console.log("cicle n" + cicles_totals);
-                descans = false;
 
                 var tid = setTimeout(segon(descans), 1000);
             }
@@ -122,17 +124,20 @@ require_once "configuracio.php";
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             if (seconds < 10){
-                seconds += "0" + seconds
+                document.getElementById("countdown").innerHTML = "// " + minutes + " : " + "0" + seconds + " \\";
+            } else{
+                document.getElementById("countdown").innerHTML = "// " + minutes + " : " + seconds + " \\";
             }
 
             document.getElementById("countdown").innerHTML = "// " + minutes + " : " + seconds + " \\";
             console.log(minutes + " " + seconds);
-            // If the count down is over, write some text 
+            
             if (distance < 0) {
                 abortTimer();
                 cicles_totals -= 1;
+                descans = !(descans)
             } else {
-                tid = setTimeout(segon, 1000); // repeat myself
+                tid = setTimeout(segon, 1000);
             }
         }
 
