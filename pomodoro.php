@@ -106,10 +106,12 @@ require_once "configuracio.php";
                     tempsCount += (min_estudi * 60000);
                     console.log("tempscount estudi" + tempsCount);
                     var tid = setTimeout(segon, 1000);
+                    console.log("bbb")
                 } else {
                     tempsCount += (min_descans * 60000);
                     console.log("tempscount descans " + tempsCount);
                     var tid = setTimeout(segon, 1000);
+                    console.log("ccc")
                 }
 
             }
@@ -132,9 +134,9 @@ require_once "configuracio.php";
             if (minutes == 0 & seconds == 0) {
                 descans = !descans
                 console.log(" descans es " + descans)
-                ongoing = false;
             } else {
                 var tid = setTimeout(segon, 1000);
+                console.log("aaa")
             }
         }
 
