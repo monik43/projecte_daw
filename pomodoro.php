@@ -129,9 +129,9 @@ require_once "configuracio.php";
                             document.getElementById("countdown").innerHTML = "// " + minutes + " : " + seconds + " \\";
                         }
                         console.log(minutes + ":" + seconds);
-                        if (minutes == 0 & seconds == 0 & distance < 0) {
-                            abortTimer();
-                            cicle = false;
+                        //minutes == 0 & seconds == 0 & 
+                        if (distance < 0) {
+                            clearInterval(interval);
                             descans = !descans
                             console.log(" descans es " + descans)
                         }
