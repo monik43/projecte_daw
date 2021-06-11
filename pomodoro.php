@@ -133,7 +133,7 @@ require_once "configuracio.php";
             }
             console.log(minutes + ":" + seconds);
             if (minutes == 0 & seconds == 0) {
-                descans = !(descans)
+                descans = !descans
                 console.log(descans)
             } else {
                 tid = setTimeout(segon, 1000);
