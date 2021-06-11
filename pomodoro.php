@@ -91,18 +91,18 @@ require_once "configuracio.php";
 
 
     <script>
-        var cicles_totals, min_estudi, min_descans, descans, tempsCount, now, tid, timeout,ongoing;
+        var cicles_totals, min_estudi, min_descans, descans, tempsCount, now, tid, timeout, ongoing;
 
         function comPomo() {
             now = new Date().getTime();
             cicles_totals = 2; //document.getElementById("cicles");
             descans = false;
-            
+
 
             for (var i = cicles_totals; i > 0; i -= 1) {
                 tempsCount = now;
                 console.log("cicle nou " + now);
-                timeout = false;
+
                 if (descans) {
                     tempsCount += (min_descans * 60000);
                     console.log("tempscount descans " + tempsCount);
@@ -110,16 +110,18 @@ require_once "configuracio.php";
                     tempsCount += (min_estudi * 60000);
                     console.log("tempscount estudi" + tempsCount);
                 }
+                timeout = false;
                 ongoing = true;
-                while(ongoing){
+                while (ongoing) {
                     var tid = setTimeout(segon, 1000);
-                    if (timeout){
+                    if (timeout) {
                         ongoing = false;
+                        cicles_totals -= 1;
+                        console.log(cicles_totals)
                         break;
                     }
                 }
-                cicles_totals -= 1;
-                console.log(cicles_totals)
+                
             }
         }
 
