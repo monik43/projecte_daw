@@ -103,6 +103,7 @@ require_once "configuracio.php";
                 tempsCount = now;
                 console.log("cicle nou" + now);
                 console.log("tempscount " + tempsCount);
+                
                 if (descans) {
                     tempsCount += (min_descans * 60000);
                     console.log("tempscount descans " + tempsCount);
@@ -112,6 +113,8 @@ require_once "configuracio.php";
                 }
 
                 var tid = setTimeout(segon, 1000);
+                cicles_totals -= 1;
+                console.log(cicles_totals)
             }
         }
 
@@ -130,9 +133,7 @@ require_once "configuracio.php";
             }
             console.log(minutes + ":" + seconds);
             if (minutes == 0 & seconds == 0) {
-                cicles_totals -= 1;
                 descans = !(descans)
-                console.log(cicles_totals)
                 console.log(descans)
             } else {
                 tid = setTimeout(segon, 1000);
