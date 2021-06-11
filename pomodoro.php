@@ -101,7 +101,7 @@ require_once "configuracio.php";
 
             for (var i = cicles_totals; i > 0; i -= 1) {
                 tempsCount = now;
-                console.log("cicle nou " + now);
+                console.log("cicle nou " + i);
                 if (!descans) {
                     tempsCount += (min_estudi * 60000);
                     console.log("tempscount estudi" + tempsCount);
@@ -111,8 +111,6 @@ require_once "configuracio.php";
                     console.log("tempscount descans " + tempsCount);
                     var tid = setTimeout(segon, 1000);
                 }
-
-                console.log(i)
 
             }
         }
