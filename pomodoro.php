@@ -132,7 +132,7 @@ require_once "configuracio.php";
             document.getElementById("countdown").innerHTML = "// " + minutes + " : " + seconds + " \\";
             console.log(minutes + " " + seconds);
             
-            if (distance < 0) {
+            if (distance <= 0) {
                 abortTimer();
                 cicles_totals -= 1;
                 console.log(cicles_totals)
