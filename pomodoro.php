@@ -118,7 +118,7 @@ require_once "configuracio.php";
                     var interval = setInterval(function() {
                         this_segon = new Date().getTime();
 
-                        distance = tempsCount - this_segon;
+                        var distance = tempsCount - this_segon;
 
                         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
