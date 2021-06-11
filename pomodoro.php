@@ -92,8 +92,6 @@ require_once "configuracio.php";
 
     <script>
         var cicles_totals, min_estudi, min_descans, descans, tempsCount, now, timeout, cicle;
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         function comPomo() {
             now = new Date().getTime();
