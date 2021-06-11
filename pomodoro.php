@@ -92,6 +92,8 @@ require_once "configuracio.php";
 
     <script>
         var cicles_totals, min_estudi, min_descans, descans, tempsCount, now, timeout, cicle;
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         function comPomo() {
             now = new Date().getTime();
@@ -101,7 +103,6 @@ require_once "configuracio.php";
 
             for (var i = cicles_totals; i > 0; i -= 1) {
                 tempsCount = now;
-                cicle = true;
                 console.log("cicle nou " + i);
                 if (!descans) {
                     tempsCount += (min_estudi * 60000);
@@ -112,33 +113,38 @@ require_once "configuracio.php";
                     console.log("tempscount descans " + tempsCount);
                     console.log("ccc")
                 }
-                while(cicle){
-                    var tid = setInterval(segon, 1000);
+
+                function countdown() {
+                    var interval = setInterval(function() {
+                        this_segon = new Date().getTime();
+
+                        distance = tempsCount - this_segon;
+
+                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        if (seconds < 10) {
+                            document.getElementById("countdown").innerHTML = "// " + minutes + " : " + "0" + seconds + " \\";
+                        } else {
+                            document.getElementById("countdown").innerHTML = "// " + minutes + " : " + seconds + " \\";
+                        }
+                        console.log(minutes + ":" + seconds);
+                        if (minutes == 0 & seconds == 0 & distance < 0) {
+                            abortTimer();
+                            cicle = false;
+                            descans = !descans
+                            console.log(" descans es " + descans)
+                        }
+                    }, 1000); //time in millaseconds to wait
+
                 }
-                
             }
+
+
         }
 
         function segon(descans) {
-            this_segon = new Date().getTime();
 
-            distance = tempsCount - this_segon;
-
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            if (seconds < 10) {
-                document.getElementById("countdown").innerHTML = "// " + minutes + " : " + "0" + seconds + " \\";
-            } else {
-                document.getElementById("countdown").innerHTML = "// " + minutes + " : " + seconds + " \\";
-            }
-            console.log(minutes + ":" + seconds);
-            if (minutes == 0 & seconds == 0 & distance < 0) {
-                abortTimer();
-                cicle = false;
-                descans = !descans
-                console.log(" descans es " + descans)
-            }
         }
 
         function abortTimer() { // to be called when you want to stop the timer
