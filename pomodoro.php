@@ -115,7 +115,7 @@ require_once "configuracio.php";
                     console.log('uwu')
                     ongoing = false;
                 } while (ongoing);
-                console.log(cicles_totals)
+                console.log(i)
 
             }
         }
