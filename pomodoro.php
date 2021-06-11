@@ -135,7 +135,9 @@ require_once "configuracio.php";
             if (distance < 0) {
                 abortTimer();
                 cicles_totals -= 1;
+                console.log(cicles_totals)
                 descans = !(descans)
+                console.log(descans)
             } else {
                 tid = setTimeout(segon, 1000);
             }
