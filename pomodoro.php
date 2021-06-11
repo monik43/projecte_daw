@@ -105,15 +105,13 @@ require_once "configuracio.php";
                 if (!descans) {
                     tempsCount += (min_estudi * 60000);
                     console.log("tempscount estudi" + tempsCount);
-                    var tid = setTimeout(segon, 1000);
                     console.log("bbb")
                 } else {
                     tempsCount += (min_descans * 60000);
                     console.log("tempscount descans " + tempsCount);
-                    var tid = setTimeout(segon, 1000);
                     console.log("ccc")
                 }
-
+                var tid = setInterval(segon, 1000);
             }
         }
 
