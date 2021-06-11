@@ -101,7 +101,7 @@ require_once "configuracio.php";
 
             for (var i = cicles_totals; i > 0; i -= 1) {
                 tempsCount = now;
-                console.log("cicle nou" + now);
+                console.log("cicle nou " + now);
                 
                 if (descans) {
                     tempsCount += (min_descans * 60000);
