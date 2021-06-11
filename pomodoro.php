@@ -110,13 +110,7 @@ require_once "configuracio.php";
                     tempsCount += (min_estudi * 60000);
                     console.log("tempscount estudi" + tempsCount);
                 }
-
-                do {
-                    console.log('uwu')
-                    descans = !descans
-                    console.log(descans)
-                    ongoing = false;
-                } while (ongoing);
+                tid = setTimeout(segon, 1000);
                 console.log(i)
 
             }
@@ -137,7 +131,8 @@ require_once "configuracio.php";
             }
             console.log(minutes + ":" + seconds);
             if (minutes == 0 & seconds == 0) {
-                
+                descans = !descans
+                console.log(descans)
                 ongoing = false;
             }
         }
