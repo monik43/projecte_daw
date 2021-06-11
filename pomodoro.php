@@ -112,30 +112,29 @@ require_once "configuracio.php";
                     console.log("ccc")
                 }
 
-                function countdown() {
-                    var interval = setInterval(function() {
-                        this_segon = new Date().getTime();
+                var interval = setInterval(function() {
+                    this_segon = new Date().getTime();
 
-                        var distance = tempsCount - this_segon;
+                    var distance = tempsCount - this_segon;
 
-                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                        if (seconds < 10) {
-                            document.getElementById("countdown").innerHTML = "// " + minutes + " : " + "0" + seconds + " \\";
-                        } else {
-                            document.getElementById("countdown").innerHTML = "// " + minutes + " : " + seconds + " \\";
-                        }
-                        console.log(minutes + ":" + seconds);
-                        //minutes == 0 & seconds == 0 & 
-                        if (distance < 0) {
-                            clearInterval(interval);
-                            descans = !descans
-                            console.log(" descans es " + descans)
-                        }
-                    }, 1000); //time in millaseconds to wait
+                    if (seconds < 10) {
+                        document.getElementById("countdown").innerHTML = "// " + minutes + " : " + "0" + seconds + " \\";
+                    } else {
+                        document.getElementById("countdown").innerHTML = "// " + minutes + " : " + seconds + " \\";
+                    }
+                    console.log(minutes + ":" + seconds);
+                    //minutes == 0 & seconds == 0 & 
+                    if (distance < 0) {
+                        clearInterval(interval);
+                        descans = !descans
+                        console.log(" descans es " + descans)
+                    }
+                }, 1000); //time in millaseconds to wait
 
-                }
+
             }
 
 
