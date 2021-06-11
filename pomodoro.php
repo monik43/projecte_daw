@@ -111,7 +111,10 @@ require_once "configuracio.php";
                     console.log("tempscount descans " + tempsCount);
                     console.log("ccc")
                 }
-                var tid = setInterval(segon, 1000);
+                while(true){
+                    var tid = setInterval(segon, 1000);
+                }
+                
             }
         }
 
