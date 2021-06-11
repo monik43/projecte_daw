@@ -102,6 +102,7 @@ require_once "configuracio.php";
             for (var i = cicles_totals; i > 0; i -= 1) {
                 tempsCount = now;
                 console.log("cicle nou " + now);
+                ongoing = true;
                 timeout = false;
                 if (descans) {
                     tempsCount += (min_descans * 60000);
@@ -110,17 +111,17 @@ require_once "configuracio.php";
                     tempsCount += (min_estudi * 60000);
                     console.log("tempscount estudi" + tempsCount);
                 }
-                
-                while (!timeout) {
-                    var tid = setTimeout(segon, 1000);
-                    if (timeout) {
-                        ongoing = false;
+
+                while (ongoing) {
+                    if (!timeout) {
                         cicles_totals -= 1;
                         console.log(cicles_totals)
-                        break;
+                        ongoing = false;
+                    } else {
+                        var tid = setTimeout(segon, 1000);
                     }
                 }
-                
+
             }
         }
 
