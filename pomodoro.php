@@ -131,7 +131,6 @@ require_once "configuracio.php";
             console.log(minutes + " " + seconds);
             
             if (minutes == 0 & seconds == 0) {
-                abortTimer();
                 cicles_totals -= 1;
                 console.log(cicles_totals)
                 descans = !(descans)
