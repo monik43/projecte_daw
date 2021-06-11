@@ -112,7 +112,8 @@ require_once "configuracio.php";
                 }
 
                 do {
-                    tid = setTimeout(segon, 1000);
+                    console.log(uwu)
+                    ongoing = false;
                 } while (ongoing);
                 console.log(cicles_totals)
 
