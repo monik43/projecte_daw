@@ -103,7 +103,6 @@ require_once "configuracio.php";
                 tempsCount = now;
                 console.log("cicle nou " + now);
                 ongoing = true;
-                timeout = false;
                 if (descans) {
                     tempsCount += (min_descans * 60000);
                     console.log("tempscount descans " + tempsCount);
@@ -112,15 +111,12 @@ require_once "configuracio.php";
                     console.log("tempscount estudi" + tempsCount);
                 }
 
-                while (ongoing) {
-                    if (timeout) {
-                        cicles_totals -= 1;
-                        console.log(cicles_totals)
-                        ongoing = false;
-                    } else {
-                        var tid = setTimeout(segon, 1000);
-                    }
-                }
+                do {
+                    var tid = setTimeout(segon, 1000);
+                } while (ongoing);
+
+                cicles_totals -= 1;
+                console.log(cicles_totals)
 
             }
         }
@@ -142,7 +138,7 @@ require_once "configuracio.php";
             if (minutes == 0 & seconds == 0) {
                 descans = !descans
                 console.log(descans)
-                timeout = true;
+                ongoing = false;
             }
         }
 
