@@ -132,9 +132,6 @@ require_once "configuracio.php";
             if (minutes == 0 & seconds == 0) {
                 descans = !descans
                 console.log(" descans es " + descans)
-            } else {
-                var tid = setTimeout(segon, 1000);
-                console.log("aaa")
             }
         }
 
