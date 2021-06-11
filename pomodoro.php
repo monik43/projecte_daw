@@ -91,7 +91,7 @@ require_once "configuracio.php";
 
 
     <script>
-        var cicles_totals, min_estudi, min_descans, descans, tempsCount, now, timeout, ongoing;
+        var cicles_totals, min_estudi, min_descans, descans, tempsCount, now, timeout, cicle;
 
         function comPomo() {
             now = new Date().getTime();
@@ -101,6 +101,7 @@ require_once "configuracio.php";
 
             for (var i = cicles_totals; i > 0; i -= 1) {
                 tempsCount = now;
+                cicle = true;
                 console.log("cicle nou " + i);
                 if (!descans) {
                     tempsCount += (min_estudi * 60000);
@@ -111,7 +112,7 @@ require_once "configuracio.php";
                     console.log("tempscount descans " + tempsCount);
                     console.log("ccc")
                 }
-                while(true){
+                while(cicle){
                     var tid = setInterval(segon, 1000);
                 }
                 
@@ -132,7 +133,9 @@ require_once "configuracio.php";
                 document.getElementById("countdown").innerHTML = "// " + minutes + " : " + seconds + " \\";
             }
             console.log(minutes + ":" + seconds);
-            if (minutes == 0 & seconds == 0) {
+            if (minutes == 0 & seconds == 0 & distance < 0) {
+                abortTimer();
+                cicle = false;
                 descans = !descans
                 console.log(" descans es " + descans)
             }
