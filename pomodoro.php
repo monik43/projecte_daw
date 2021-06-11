@@ -112,10 +112,8 @@ require_once "configuracio.php";
                 }
 
                 do {
-                    var tid = setTimeout(segon, 1000);
+                    tid = setTimeout(segon, 1000);
                 } while (ongoing);
-
-                cicles_totals -= 1;
                 console.log(cicles_totals)
 
             }
