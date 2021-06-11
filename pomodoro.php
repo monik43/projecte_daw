@@ -134,6 +134,8 @@ require_once "configuracio.php";
                 descans = !descans
                 console.log(descans)
                 ongoing = false;
+            } else {
+                tid = setTimeout(segon, 1000);
             }
         }
 
