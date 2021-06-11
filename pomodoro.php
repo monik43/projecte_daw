@@ -113,6 +113,8 @@ require_once "configuracio.php";
 
                 do {
                     console.log('uwu')
+                    descans = !descans
+                    console.log(descans)
                     ongoing = false;
                 } while (ongoing);
                 console.log(i)
@@ -135,8 +137,7 @@ require_once "configuracio.php";
             }
             console.log(minutes + ":" + seconds);
             if (minutes == 0 & seconds == 0) {
-                descans = !descans
-                console.log(descans)
+                
                 ongoing = false;
             }
         }
