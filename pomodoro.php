@@ -102,7 +102,7 @@ require_once "configuracio.php";
             for (var i = cicles_totals; i > 0; i -= 1) {
                 tempsCount = now;
                 console.log("cicle nou" + now);
-                
+                console.log("tempscount " + tempsCount);
                 if (descans) {
                     tempsCount += (min_descans * 60000);
                     console.log("tempscount descans " + tempsCount);
@@ -111,8 +111,7 @@ require_once "configuracio.php";
                     console.log("tempscount " + tempsCount);
                 }
 
-
-                var tid = setTimeout(segon), 1000);
+                var tid = setTimeout(segon, 1000);
             }
         }
 
@@ -124,17 +123,16 @@ require_once "configuracio.php";
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            if (seconds < 10){
+            if (seconds < 10) {
                 document.getElementById("countdown").innerHTML = "// " + minutes + " : " + "0" + seconds + " \\";
-            } else{
+            } else {
                 document.getElementById("countdown").innerHTML = "// " + minutes + " : " + seconds + " \\";
             }
-            console.log(minutes + " " + seconds);
-            
+            console.log(minutes + ":" + seconds);
             if (minutes == 0 & seconds == 0) {
                 cicles_totals -= 1;
-                console.log(cicles_totals)
                 descans = !(descans)
+                console.log(cicles_totals)
                 console.log(descans)
             } else {
                 tid = setTimeout(segon, 1000);
