@@ -112,7 +112,7 @@ require_once "configuracio.php";
                 }
 
                 do {
-                    console.log(uwu)
+                    console.log('uwu')
                     ongoing = false;
                 } while (ongoing);
                 console.log(cicles_totals)
