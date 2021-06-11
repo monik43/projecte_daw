@@ -102,14 +102,13 @@ require_once "configuracio.php";
             for (var i = cicles_totals; i > 0; i -= 1) {
                 tempsCount = now;
                 console.log("cicle nou" + now);
-                console.log("tempscount " + tempsCount);
                 
                 if (descans) {
                     tempsCount += (min_descans * 60000);
                     console.log("tempscount descans " + tempsCount);
                 } else {
                     tempsCount += (min_estudi * 60000);
-                    console.log("tempscount " + tempsCount);
+                    console.log("tempscount estudi" + tempsCount);
                 }
 
                 var tid = setTimeout(segon, 1000);
