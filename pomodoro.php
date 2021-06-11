@@ -113,7 +113,7 @@ require_once "configuracio.php";
                 }
 
                 while (ongoing) {
-                    if (!timeout) {
+                    if (timeout) {
                         cicles_totals -= 1;
                         console.log(cicles_totals)
                         ongoing = false;
