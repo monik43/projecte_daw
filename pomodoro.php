@@ -59,106 +59,33 @@ require_once "configuracio.php";
             </div>
         </nav>
     </header>
+    <main class="app">
+        <progress id="js-progress" value="0"></progress>
+        <div class="progress-bar"></div>
+        <div class="timer">
+            <div class="button-group mode-buttons" id="js-mode-buttons">
+                <button data-mode="pomodoro" class="button active mode-button" id="js-pomodoro">
+                    Pomodoro
+                </button>
+                <button data-mode="shortBreak" class="button mode-button" id="js-short-break">
+                    Short break
+                </button>
+                <button data-mode="longBreak" class="button mode-button" id="js-long-break">
+                    Long break
+                </button>
+            </div>
+            <div class="clock" id="js-clock">
+                <span id="js-minutes">25</span>
+                <span class="separator">:</span>
+                <span id="js-seconds">00</span>
+            </div>
+            <button class="main-button" data-action="start" id="js-btn">
+                Start
+            </button>
+        </div>
+    </main>
 
-
-    <h3>Min estudi</h3>
-    <button type="button" onclick="setEstudi(1)">1 min</button>
-    <button type="button" onclick="setEstudi(10)">10 min</button>
-    <button type="button" onclick="setEstudi(15)">15 min</button>
-    <button type="button" onclick="setEstudi(20)">20 min</button>
-    <button type="button" onclick="setEstudi(25)">25 min</button>
-    <button type="button" onclick="setEstudi(30)">30 min</button>
-    <button type="button" onclick="setEstudi(35)">35 min</button>
-    <button type="button" onclick="setEstudi(40)">40 min</button>
-    <button type="button" onclick="setEstudi(45)">45 min</button>
-
-    <h3>Min descans</h3>
-    <button type="button" onclick="setEstudi(1)">1 min</button>
-    <button type="button" onclick="setDescans(5)">5 min</button>
-    <button type="button" onclick="setDescans(10)">10 min</button>
-    <button type="button" onclick="setDescans(15)">15 min</button>
-    <button type="button" onclick="setDescans(20)">20 min</button>
-
-
-    <h3>Numero cicles</h3>
-    <form>
-        <input type="number" id="cicles" name="cicles" min="1" max="10">
-    </form>
-
-    <p id="countdown"></p>
-    <p id="demo"></p>
-    <button type="button" onclick="comPomo()">Començar</button>
-
-
-    <script>
-        var cicles_totals, min_estudi, min_descans, descans, tempsCount, now, ongoing, cicle;
-        cicles_totals = 2;
-
-        function comPomo() {
-
-            now = new Date().getTime();
-            descans = false;
-            for (var i = cicles_totals; i > 0; i -= 1) {
-                ongoing = true;
-                if (descans) {
-                    tempsCount += (min_descans * 60000);
-                    console.log("tempscount descans " + tempsCount);
-                    while (ongoing) {
-                        countdown();
-
-                    }
-                } else {
-                    tempsCount += (min_estudi * 60000);
-                    console.log("tempscount estudi" + tempsCount);
-                    while (ongoing) {
-                        countdown();
-                    }
-                }
-            }
-        }
-
-        function countdown() {
-            var interval = setInterval(function() {
-                this_segon = new Date().getTime();
-
-                var distance = tempsCount - this_segon;
-
-                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                if (seconds < 10) {
-                    document.getElementById("countdown").innerHTML = "// " + minutes + " : " + "0" + seconds + " \\";
-                } else {
-                    document.getElementById("countdown").innerHTML = "// " + minutes + " : " + seconds + " \\";
-                }
-                console.log(minutes + ":" + seconds);
-                //minutes == 0 & seconds == 0 & 
-                if (distance < 0) {
-                    clearInterval(interval);
-                    descans = !descans
-                    console.log(" descans es " + descans)
-                }
-            }, 100); //time in millaseconds to wait
-
-        }
-
-        function segon(descans) {
-
-        }
-
-        function abortTimer() { // to be called when you want to stop the timer
-            clearTimeout(tid);
-        }
-
-        function setEstudi(min) {
-            min_estudi = min;
-            console.log(min_estudi);
-        }
-
-        function setDescans(min) {
-            min_descans = min;
-            console.log(min_descans);
-        }
+    <script type="text/javascript" src="mainpomo.js">
     </script>
 
     <script>
