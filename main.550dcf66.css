@@ -10,6 +10,13 @@
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
+.cent {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}
+
 html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
@@ -5861,10 +5868,4 @@ label {
 .list-icons li {
     float: left;
     margin-right: 5px
-}
-.cent {
-    margin: auto;
-    width: 50%;
-    border: 3px solid green;
-    padding: 10px;
 }
