@@ -68,10 +68,10 @@ require_once "configuracio.php";
                     Pomodoro
                 </button>
                 <button data-mode="shortBreak" class="button mode-button" id="js-short-break">
-                    Short break
+                    Descans curt
                 </button>
                 <button data-mode="longBreak" class="button mode-button" id="js-long-break">
-                    Long break
+                    Descans llarg
                 </button>
             </div>
             <div class="clock" id="js-clock">
@@ -80,7 +80,7 @@ require_once "configuracio.php";
                 <span id="js-seconds">00</span>
             </div>
             <button class="main-button" data-action="start" id="js-btn">
-                Start
+                Comença
             </button>
         </div>
     </main>
