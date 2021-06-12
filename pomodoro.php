@@ -54,9 +54,7 @@ require_once "configuracio.php";
 
         
 
-        .mode-button.active {
-            border-color: #fff;
-        }
+        
 
         .main-button {
             cursor: pointer;
