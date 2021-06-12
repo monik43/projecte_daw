@@ -18,12 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $param_tasca = $tasca;
             $param_id_user = $_SESSION["id"];
 
-            if (mysqli_stmt_execute($stmt)) {
-                header("location: login.php");
-            } else {
-                echo "Hi ha hagut un error, torna-ho a intentar més tard.";
-            }
-
             mysqli_stmt_close($stmt);
         }
     }
@@ -151,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <li><a href="./index.html" title="">Home</a></li>
                         <li>
                             <p>
-                                <a href="./panel.php" class="btn btn-default navbar-btn" title=""><?php echo htmlspecialchars($_SESSION["id"]); ?></a>
+                                <a href="./panel.php" class="btn btn-default navbar-btn" title=""><?php echo htmlspecialchars($_SESSION["username"]); ?></a>
                             </p>
                         </li>
 
