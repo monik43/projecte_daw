@@ -45,7 +45,7 @@ const timer = {
     if (timer.mode === 'pomodoro') timer.sessions++;
   
     mainButton.dataset.action = 'stop';
-    mainButton.textContent = 'Pausa';
+    mainButton.textContent = 'Pause';
     mainButton.classList.add('active');
   
     interval = setInterval(function() {
@@ -85,7 +85,7 @@ const timer = {
     clearInterval(interval);
   
     mainButton.dataset.action = 'start';
-    mainButton.textContent = 'Seguir';
+    mainButton.textContent = 'Play';
     mainButton.classList.remove('active');
   }
   
