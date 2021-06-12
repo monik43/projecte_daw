@@ -54,6 +54,7 @@ require_once "configuracio.php";
             </div>
         </nav>
     </header>
+    <div class="cent">
     <main class="app">
         <progress id="js-progress" value="0"></progress>
         <div class="progress-bar"></div>
@@ -79,7 +80,7 @@ require_once "configuracio.php";
             </button>
         </div>
     </main>
-
+    </div>
     <script type="text/javascript" src="mainpomo.js">
     </script>
 
