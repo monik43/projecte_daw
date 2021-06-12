@@ -155,7 +155,7 @@ require_once "configuracio.php";
                     <span id="js-seconds">00</span>
                 </div>
                 <button class="main-button" data-action="start" id="js-btn">
-                    Començar
+                    PLAY
                 </button>
             </div>
         </main>
