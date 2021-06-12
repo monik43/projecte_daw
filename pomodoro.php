@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO tasca (tasca, id_user) VALUES (?, ?)";
 
         if ($stmt = mysqli_prepare($link, $sql)) {
-            mysqli_stmt_bind_param($stmt, "ss", $param_tasca, $param_id_user);
+            mysqli_stmt_bind_param($stmt, "si", $param_tasca, $param_id_user);
 
             $param_tasca = $tasca;
             $param_id_user = $_SESSION["id"];
