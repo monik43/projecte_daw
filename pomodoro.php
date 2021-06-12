@@ -93,6 +93,7 @@ require_once "configuracio.php";
     <script>
         var cicles_totals, min_estudi, min_descans, descans, tempsCount, now, timeout, cicle;
 
+
         function comPomo() {
             now = new Date().getTime();
             cicles_totals = 2; //document.getElementById("cicles");
@@ -102,6 +103,9 @@ require_once "configuracio.php";
             for (var i = cicles_totals; i > 0; i -= 1) {
                 tempsCount = now;
                 console.log("cicle nou " + i);
+                
+                for (var o = )
+
                 if (!descans) {
                     tempsCount += (min_estudi * 60000);
                     console.log("tempscount estudi" + tempsCount);
@@ -112,31 +116,34 @@ require_once "configuracio.php";
                     console.log("ccc")
                 }
 
-                var interval = setInterval(function() {
-                    this_segon = new Date().getTime();
-
-                    var distance = tempsCount - this_segon;
-
-                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                    if (seconds < 10) {
-                        document.getElementById("countdown").innerHTML = "// " + minutes + " : " + "0" + seconds + " \\";
-                    } else {
-                        document.getElementById("countdown").innerHTML = "// " + minutes + " : " + seconds + " \\";
-                    }
-                    console.log(minutes + ":" + seconds);
-                    //minutes == 0 & seconds == 0 & 
-                    if (distance < 0) {
-                        clearInterval(interval);
-                        descans = !descans
-                        console.log(" descans es " + descans)
-                    }
-                }, 1000); //time in millaseconds to wait
-
 
             }
 
+
+        }
+
+        function countdown() {
+            var interval = setInterval(function() {
+                this_segon = new Date().getTime();
+
+                var distance = tempsCount - this_segon;
+
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                if (seconds < 10) {
+                    document.getElementById("countdown").innerHTML = "// " + minutes + " : " + "0" + seconds + " \\";
+                } else {
+                    document.getElementById("countdown").innerHTML = "// " + minutes + " : " + seconds + " \\";
+                }
+                console.log(minutes + ":" + seconds);
+                //minutes == 0 & seconds == 0 & 
+                if (distance < 0) {
+                    clearInterval(interval);
+                    descans = !descans
+                    console.log(" descans es " + descans)
+                }
+            }, 1000); //time in millaseconds to wait
 
         }
 
