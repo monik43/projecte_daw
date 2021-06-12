@@ -4,11 +4,10 @@ require_once "configuracio.php";
 
 $tasca = "";
 $empty_tasca_err = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty(trim($_POST["tasca"]))) {
         $empty_tasca_err = "Has d'intoduir una tasca.";
-    } else {
-        $tasca = trim($_POST["tasca"]);
     }
 
     if (empty($empty_tasca_err)) {
@@ -18,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt = mysqli_prepare($link, $sql)) {
             mysqli_stmt_bind_param($stmt, "si", $param_tasca, $param_id_user);
 
-            $param_tasca = $tasca;
+            $param_tasca = trim($_POST["tasca"]);
             $param_id_user = $_SESSION["id"];
 
             mysqli_stmt_close($stmt);
