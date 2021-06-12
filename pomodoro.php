@@ -1,16 +1,17 @@
 <?php
 session_start();
 require_once "configuracio.php";
+
 $tasca = "";
 $empty_tasca_err = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty(trim($_POST["tasca"]))){
+    if (empty(trim($_POST["tasca"]))) {
         $empty_tasca_err = "Has d'intoduir una tasca.";
     } else {
         $tasca = trim($_POST["tasca"]);
     }
 
-    if (empty($empty_tasca_err)){
+    if (empty($empty_tasca_err)) {
 
         $sql = "INSERT INTO tasca (tasca, id_user) VALUES (?, ?)";
 
@@ -185,9 +186,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </main>
 
         <div>
-            <form method="post">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 Afegir tasca:
-                <input type="text" name="tasca"/> <input type="submit" value="Afegir" />
+                <input type="text" name="tasca" /> <input type="submit" value="Afegir" />
                 <span class="invalid-feedback"><?php echo $empty_tasca_err; ?></span>
             </form>
             <div>
