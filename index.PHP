@@ -1,3 +1,7 @@
+<?php
+session_start();
+require_once "configuracio.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -48,7 +52,7 @@
                     href="./login.php"
                     class="btn btn-default navbar-btn"
                     title=""
-                    >Login</a
+                    ><?php echo htmlspecialchars($_SESSION["username"]); ?></a
                   >
                 </p>
               </li>
