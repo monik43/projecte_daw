@@ -52,9 +52,9 @@ require_once "configuracio.php";
             font-family: arial, sans-serif;
         }
 
-        
 
-        
+
+
 
         .main-button {
             cursor: pointer;

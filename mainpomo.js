@@ -70,7 +70,7 @@ const timer = {
   
         if (Notification.permission === 'granted') {
           const text =
-            timer.mode === 'pomodoro' ? 'Get back to work!' : 'Take a break!';
+            timer.mode === 'pomodoro' ? 'Torna a estudiar!' : 'Dona\'t un descans!';
           new Notification(text);
         }
   
@@ -100,7 +100,7 @@ const timer = {
     sec.textContent = seconds;
   
     const text =
-      timer.mode === 'pomodoro' ? 'Get back to work!' : 'Take a break!';
+      timer.mode === 'pomodoro' ? 'Get back to work!' : 'Dona\'t un descans!';
     document.title = `${minutes}:${seconds} — ${text}`;
   
     const progress = document.getElementById('js-progress');
@@ -145,7 +145,7 @@ const timer = {
         Notification.requestPermission().then(function(permission) {
           if (permission === 'granted') {
             new Notification(
-              'Awesome! You will be notified at the start of each session'
+              'Utilitzarem les notificacions per avisarte què està passant.'
             );
           }
         });
