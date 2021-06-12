@@ -15,7 +15,14 @@ require_once "configuracio.php";
     <link href="./assets/favicon.ico" rel="icon">
 
     <link href="" rel="stylesheet">
-
+    <style>
+        .cent {
+            margin: auto;
+            width: 50%;
+            border: 3px solid green;
+            padding: 10px;
+        }
+    </style>
 
     <title>Title page</title>
 
@@ -55,31 +62,31 @@ require_once "configuracio.php";
         </nav>
     </header>
     <div class="cent">
-    <main class="app">
-        <progress id="js-progress" value="0"></progress>
-        <div class="progress-bar"></div>
-        <div class="timer">
-            <div class="button-group mode-buttons" id="js-mode-buttons">
-                <button data-mode="pomodoro" class="button active mode-button" id="js-pomodoro">
-                    Pomodoro
-                </button>
-                <button data-mode="shortBreak" class="button mode-button" id="js-short-break">
-                    Descans curt
-                </button>
-                <button data-mode="longBreak" class="button mode-button" id="js-long-break">
-                    Descans llarg
+        <main class="app">
+            <progress id="js-progress" value="0"></progress>
+            <div class="progress-bar"></div>
+            <div class="timer">
+                <div class="button-group mode-buttons" id="js-mode-buttons">
+                    <button data-mode="pomodoro" class="button active mode-button" id="js-pomodoro">
+                        Pomodoro
+                    </button>
+                    <button data-mode="shortBreak" class="button mode-button" id="js-short-break">
+                        Descans curt
+                    </button>
+                    <button data-mode="longBreak" class="button mode-button" id="js-long-break">
+                        Descans llarg
+                    </button>
+                </div>
+                <div class="clock" id="js-clock">
+                    <span id="js-minutes">25</span>
+                    <span class="separator">:</span>
+                    <span id="js-seconds">00</span>
+                </div>
+                <button class="main-button" data-action="start" id="js-btn">
+                    Començar
                 </button>
             </div>
-            <div class="clock" id="js-clock">
-                <span id="js-minutes">25</span>
-                <span class="separator">:</span>
-                <span id="js-seconds">00</span>
-            </div>
-            <button class="main-button" data-action="start" id="js-btn">
-                Començar
-            </button>
-        </div>
-    </main>
+        </main>
     </div>
     <script type="text/javascript" src="mainpomo.js">
     </script>
