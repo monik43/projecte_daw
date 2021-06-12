@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once "configuracio.php";
+$tasca = "";
+$empty_tasca_err = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty(trim($_POST["tasca"]))){
         $empty_tasca_err = "Has d'intoduir una tasca.";
@@ -15,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt = mysqli_prepare($link, $sql)) {
             mysqli_stmt_bind_param($stmt, "ss", $param_tasca, $param_id_user);
 
-            $param_tasca = "test";
+            $param_tasca = $tasca;
             $param_id_user = $_SESSION["id"];
 
             mysqli_stmt_close($stmt);
