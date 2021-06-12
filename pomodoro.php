@@ -1,6 +1,33 @@
 <?php
 session_start();
 require_once "configuracio.php";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty(trim($_POST["tasca"]))){
+        $empty_tasca_err = "Has d'intoduir una tasca.";
+    } else {
+        $tasca = trim($_POST["tasca"]);
+    }
+
+    if (empty($empty_tasca_err)){
+
+        $sql = "INSERT INTO tasca (tasca, id_user) VALUES (?, ?)";
+
+        if ($stmt = mysqli_prepare($link, $sql)) {
+            mysqli_stmt_bind_param($stmt, "ss", $param_tasca, $param_id_user);
+
+            $param_tasca = $tasca;
+            $param_id_user = $_SESSION["id"];
+
+            if (mysqli_stmt_execute($stmt)) {
+                header("location: login.php");
+            } else {
+                echo "Hi ha hagut un error, torna-ho a intentar més tard.";
+            }
+
+            mysqli_stmt_close($stmt);
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -159,6 +186,16 @@ require_once "configuracio.php";
                 </button>
             </div>
         </main>
+
+        <div>
+            <form method="post">
+                Afegir tasca:
+                <input type="text" name="tasca"/> <input type="submit" value="Afegir" />
+                <span class="invalid-feedback"><?php echo $empty_tasca_err; ?></span>
+            </form>
+            <div>
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src="mainpomo.js">
     </script>

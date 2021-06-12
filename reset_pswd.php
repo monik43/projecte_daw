@@ -77,8 +77,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Reinici contrasenya</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 360px; padding: 20px; }
+        body {
+            font: 14px sans-serif;
+            background-color: #1763e9;
+        }
+
+        .wrapper {
+            width: 350px;
+            padding: 20px;
+            margin: 7% 35% 0 35%;
+            border-radius: 5px;
+            background-color: #fcf8e3;
+        }
     </style>
 </head>
 <body>
