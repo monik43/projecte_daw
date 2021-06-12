@@ -52,19 +52,7 @@ require_once "configuracio.php";
             font-family: arial, sans-serif;
         }
 
-        .mode-button {
-            font-size: 16px;
-            height: 28px;
-            cursor: pointer;
-            box-shadow: none;
-            font-weight: 300;
-            color: #fff;
-            border: 1px solid transparent;
-            margin: 0px;
-            border-radius: 4px;
-            padding: 2px 12px;
-            background: none;
-        }
+        
 
         .mode-button.active {
             border-color: #fff;
