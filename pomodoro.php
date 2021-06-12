@@ -188,11 +188,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 Afegir tasca:
-                <input type="text" name="tasca" /> <input type="submit" value="Afegir" />
+                <input type="text" name="tasca" value="<?php echo $tasca; ?>"/> <input type="submit" value="Afegir" />
                 <span class="invalid-feedback"><?php echo $empty_tasca_err; ?></span>
             </form>
-            <div>
-            </div>
         </div>
     </div>
     <script type="text/javascript" src="mainpomo.js">
