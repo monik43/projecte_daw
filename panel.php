@@ -29,7 +29,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         .wrapper {
             width: 350px;
             padding: 20px;
-
+            margin: 7% 35% 0 35%;
             border-radius: 5px;
             background-color: #fcf8e3;
         }

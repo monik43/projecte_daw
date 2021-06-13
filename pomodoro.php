@@ -132,13 +132,13 @@ require_once "configuracio.php";
             <div class="progress-bar"></div>
             <div class="timer">
                 <div class="button-group mode-buttons" id="js-mode-buttons">
-                    <button data-mode="pomodoro" class="button active mode-button" id="js-pomodoro">
+                    <button data-mode="pomodoro" id="js-pomodoro">
                         Pomodoro
                     </button>
-                    <button data-mode="shortBreak" class="button mode-button" id="js-short-break">
+                    <button data-mode="shortBreak" id="js-short-break">
                         Descans curt
                     </button>
-                    <button data-mode="longBreak" class="button mode-button" id="js-long-break">
+                    <button data-mode="longBreak" id="js-long-break">
                         Descans llarg
                     </button>
                 </div>

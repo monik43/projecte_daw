@@ -100,7 +100,7 @@ const timer = {
     sec.textContent = seconds;
   
     const text =
-      timer.mode === 'pomodoro' ? 'Get back to work!' : 'Dona\'t un descans!';
+      timer.mode === 'pomodoro' ? 'A treballar!' : 'Dona\'t un descans!';
     document.title = `${minutes}:${seconds} — ${text}`;
   
     const progress = document.getElementById('js-progress');
