@@ -23,7 +23,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <style>
         body {
             font: 14px sans-serif;
-            background-color: #1763e9;
+            background-color: #d3d3d3;
         }
 
         .wrapper {
@@ -75,8 +75,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         </nav>
     </header>
     <div class="wrapper">
-        <h3 class="my-5">Hola, <b><?php echo htmlspecialchars($_SESSION["username"]); ?>!</b>. Aquest és el teu panell d'usuari.</h3>
+        <h3 class="my-5">Hola, <b><?php echo htmlspecialchars($_SESSION["username"]); ?>!</b> Aquest és el teu panell d'usuari.</h3>
         <p>
+            Escolleix una opció:
+            <br/>
             <a href="reset_pswd.php" class="btn btn-warning">Canvia la contrasenya</a>
             <a href="logout.php" class="btn btn-danger ml-3">Sortir</a>
         </p>
