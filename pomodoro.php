@@ -9,11 +9,6 @@ require_once "configuracio.php";
     <meta charset="UTF-8">
     <meta name="msapplication-tap-highlight" content="no">
 
-
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
-    <link href="./assets/favicon.ico" rel="icon">
-
-    <link href="" rel="stylesheet">
     <style>
         progress {
             border-radius: 2px;

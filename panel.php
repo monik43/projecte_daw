@@ -37,13 +37,12 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <link href="" rel="stylesheet">
 
 
-    <title>Title page</title>
+    <title>Panell d'usuari</title>
 
     <link href="./main.550dcf66.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Add your content of header -->
     <header>
         <nav class="navbar navbar-default active">
             <div class="container">
