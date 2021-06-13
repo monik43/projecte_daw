@@ -1,37 +1,12 @@
 <?php
 session_start();
 require_once "configuracio.php";
-
-$tasca = "";
-$empty_tasca_err = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty(trim($_POST["tasca"]))) {
-        $empty_tasca_err = "Has d'intoduir una tasca.";
-    }
-
-    if (empty($empty_tasca_err)) {
-
-        $sql = "INSERT INTO tasca (id_user, tasca) VALUES (?, ?)";
-
-        if ($stmt = mysqli_prepare($link, $sql)) {
-            mysqli_stmt_bind_param($stmt, "is",$param_id_user, $param_tasca);
-
-            $param_tasca = trim($_POST["tasca"]);
-            $param_id_user = $_SESSION["id"];
-
-            mysqli_stmt_close($stmt);
-        }
-    }
-    mysqli_close($link);
-}
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
 
@@ -75,11 +50,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             align-items: center;
             font-family: arial, sans-serif;
         }
-
-
-
-
-
         .main-button {
             cursor: pointer;
             box-shadow: rgb(235, 235, 235) 0px 6px 0px;
@@ -120,13 +90,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     </style>
 
-    <title>Title page</title>
+    <title>Pomodoro</title>
 
     <link href="./main.550dcf66.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Add your content of header -->
     <header>
         <nav class="navbar navbar-default active">
             <div class="container">
@@ -183,14 +152,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </button>
             </div>
         </main>
-
-        <div>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                Afegir tasca:
-                <input type="text" name="tasca" value="<?php echo $tasca; ?>"/> <input type="submit" value="Afegir" />
-                <span class="invalid-feedback"><?php echo $empty_tasca_err; ?></span>
-            </form>
-        </div>
     </div>
     <script type="text/javascript" src="mainpomo.js">
     </script>
