@@ -12,10 +12,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($empty_tasca_err)) {
 
-        $sql = "INSERT INTO tasca (tasca, id_user) VALUES (?, ?)";
+        $sql = "INSERT INTO tasca (id_user, tasca) VALUES (?, ?)";
 
         if ($stmt = mysqli_prepare($link, $sql)) {
-            mysqli_stmt_bind_param($stmt, "si", $param_tasca, $param_id_user);
+            mysqli_stmt_bind_param($stmt, "is",$param_id_user, $param_tasca);
 
             $param_tasca = trim($_POST["tasca"]);
             $param_id_user = $_SESSION["id"];
